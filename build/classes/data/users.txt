@@ -1,0 +1,3 @@
+U001|admin|admin123|Admin Manager|admin@cinema.com|MANAGER|EMP001
+U002|clerk1|clerk123|John Clerk|john@cinema.com|CLERK|EMP002|Counter 1
+U003|Jia Hern|0123|Jia Hern|asdksa|CUSTOMER|asdsada|2026-03-22
