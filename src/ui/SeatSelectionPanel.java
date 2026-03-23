@@ -1,6 +1,7 @@
 package ui;
 
 import java.awt.*;
+import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -47,7 +48,16 @@ public class SeatSelectionPanel extends JPanel {
                 btn.setFont(new Font("Segoe UI", Font.PLAIN, 10));
                 btn.setPreferredSize(new Dimension(50, 35));
                 btn.setBackground(new Color(144, 238, 144)); // light green = available
+                btn.setBorderPainted(true);
+                btn.setFocusPainted(false);
                 btn.setToolTipText("Seat " + seatNum + " - Available");
+                btn.addItemListener(e -> {
+                    if (e.getStateChange() == ItemEvent.SELECTED) {
+                        ((JToggleButton) e.getSource()).setBackground(new Color(100, 149, 237));
+                    } else {
+                        ((JToggleButton) e.getSource()).setBackground(new Color(144, 238, 144));
+                    }
+                });
                 seatButtons[r][c] = btn;
                 gridPanel.add(btn);
             }
@@ -117,6 +127,9 @@ public class SeatSelectionPanel extends JPanel {
         for (int r = 0; r < ROWS; r++) {
             for (int c = 0; c < COLS; c++) {
                 seatButtons[r][c].setSelected(false);
+                if (seatButtons[r][c].isEnabled()) {
+                    seatButtons[r][c].setBackground(new Color(144, 238, 144));
+                }
             }
         }
     }
