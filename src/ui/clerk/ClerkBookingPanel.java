@@ -10,7 +10,7 @@ import ui.SeatSelectionPanel;
 
 /**
  * Walk-in ticket booking panel for ticketing clerks.
- * @author jiahe
+ * @author Chan Hao Wen
  */
 public class ClerkBookingPanel extends javax.swing.JFrame {
 

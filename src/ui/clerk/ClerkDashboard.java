@@ -5,7 +5,7 @@ import ui.LoginFrame;
 
 /**
  * Ticketing Clerk dashboard with buttons to access different clerk panels.
- * @author jiahe
+ * @author Chan Hao Wen
  */
 public class ClerkDashboard extends javax.swing.JFrame {
 
