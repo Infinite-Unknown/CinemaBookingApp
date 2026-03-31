@@ -9,7 +9,7 @@ import main_running.Movie;
 
 /**
  * Panel showing active movies with option to book tickets.
- * @author jiahe
+ * @author Lam Ming Joe
  */
 public class CustomerMoviesPanel extends javax.swing.JFrame {
 

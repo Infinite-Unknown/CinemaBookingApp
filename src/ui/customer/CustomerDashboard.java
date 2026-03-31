@@ -5,7 +5,7 @@ import ui.LoginFrame;
 
 /**
  * Customer dashboard with buttons to access different panels.
- * @author jiahe
+ * @author Lam Ming Joe
  */
 public class CustomerDashboard extends javax.swing.JFrame {
 
