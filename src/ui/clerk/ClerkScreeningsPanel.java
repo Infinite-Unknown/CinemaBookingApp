@@ -8,7 +8,7 @@ import main_running.*;
 
 /**
  * Panel for clerks to view current screenings/showtimes.
- * @author Chan Hao Wen
+ * @author jiahe
  */
 public class ClerkScreeningsPanel extends javax.swing.JFrame {
 

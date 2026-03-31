@@ -8,7 +8,7 @@ import main_running.*;
 
 /**
  * Panel for clerks to view and manage all bookings.
- * @author Chan Hao Wen
+ * @author jiahe
  */
 public class ClerkManageBookingsPanel extends javax.swing.JFrame {
 
