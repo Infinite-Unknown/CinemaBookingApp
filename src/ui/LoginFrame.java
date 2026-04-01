@@ -18,6 +18,10 @@ public class LoginFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Cinema Booking System - Login");
+        
+        PF_password.addActionListener(e -> {
+            BTN_login.doClick();
+        });
     }
 
     @SuppressWarnings("unchecked")
