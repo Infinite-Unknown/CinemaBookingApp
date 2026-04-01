@@ -10,7 +10,7 @@ import main_running.Seat;
 /**
  * Reusable seat selection panel with a 5x10 grid of toggle buttons.
  * Used by both Customer booking and Clerk booking.
- * @author jiahe
+ * @author Chan Hao Wen
  */
 public class SeatSelectionPanel extends JPanel {
 

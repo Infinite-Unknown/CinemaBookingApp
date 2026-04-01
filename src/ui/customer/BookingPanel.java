@@ -10,7 +10,7 @@ import ui.ReceiptDialog;
 
 /**
  * Booking panel for selecting showtime, seats, and making payment.
- * @author jiahe
+ * @author Lam Ming Joe
  */
 public class BookingPanel extends javax.swing.JFrame {
 

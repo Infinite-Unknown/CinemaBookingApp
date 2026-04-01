@@ -9,7 +9,7 @@ import main_running.*;
 
 /**
  * Handles payment processing and receipt generation.
- * @author jiahe
+ * @author Chan Hao Wen
  */
 public class PaymentService {
 

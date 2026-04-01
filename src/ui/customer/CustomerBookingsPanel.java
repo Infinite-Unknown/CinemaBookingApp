@@ -8,7 +8,7 @@ import main_running.*;
 
 /**
  * Panel showing customer's bookings with cancel and receipt options.
- * @author jiahe
+ * @author Lam Ming Joe
  */
 public class CustomerBookingsPanel extends javax.swing.JFrame {
 

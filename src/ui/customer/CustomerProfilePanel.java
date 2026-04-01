@@ -6,7 +6,7 @@ import main_running.Customer;
 
 /**
  * Panel for editing customer profile information.
- * @author jiahe
+ * @author Lam Ming Joe
  */
 public class CustomerProfilePanel extends javax.swing.JFrame {
 

@@ -2,7 +2,7 @@ package main_running;
 
 /**
  * Represents a movie showtime/screening.
- * @author jiahe
+ * @author Chan Hao Wen
  */
 public class Showtime implements Displayable, Saveable {
 

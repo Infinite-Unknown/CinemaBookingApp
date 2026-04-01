@@ -2,7 +2,7 @@ package main_running;
 
 /**
  * Represents a ticket booking.
- * @author jiahe
+ * @author Chan Hao Wen
  */
 public class Booking implements Displayable, Saveable {
 

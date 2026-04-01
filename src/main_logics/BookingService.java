@@ -9,7 +9,7 @@ import main_running.*;
 
 /**
  * Handles booking operations including seat management.
- * @author jiahe
+ * @author Chan Hao Wen
  */
 public class BookingService {
 
