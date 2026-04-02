@@ -10,11 +10,13 @@ import ui.SeatSelectionPanel;
 
 /**
  * Walk-in ticket booking panel for ticketing clerks.
+ * 
  * @author Chan Hao Wen
  */
 public class ClerkBookingPanel extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ClerkBookingPanel.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger
+            .getLogger(ClerkBookingPanel.class.getName());
     private TicketingClerk clerk;
     private MovieService movieService;
     private ShowtimeService showtimeService;
@@ -40,7 +42,8 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -80,7 +83,8 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
 
         L_discount.setText("Discount:");
 
-        CB_discount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Student", "Senior Citizen", "Child" }));
+        CB_discount.setModel(
+                new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Student", "Senior Citizen", "Child" }));
 
         L_payment.setText("Payment:");
 
@@ -99,90 +103,103 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout pnlSeatContainerLayout = new javax.swing.GroupLayout(pnlSeatContainer);
         pnlSeatContainer.setLayout(pnlSeatContainerLayout);
         pnlSeatContainerLayout.setHorizontalGroup(
-            pnlSeatContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+                pnlSeatContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE));
         pnlSeatContainerLayout.setVerticalGroup(
-            pnlSeatContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
+                pnlSeatContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 250, Short.MAX_VALUE));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(L_title, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlSeatContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(L_movie)
-                        .addGap(10, 10, 10)
-                        .addComponent(CB_movie, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(L_custName)
-                        .addGap(5, 5, 5)
-                        .addComponent(TF_customerName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(L_showtime)
-                        .addGap(10, 10, 10)
-                        .addComponent(CB_showtime, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(L_discount)
-                        .addGap(5, 5, 5)
-                        .addComponent(CB_discount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(L_payment)
-                        .addGap(5, 5, 5)
-                        .addComponent(CB_payment, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addComponent(BTN_calculate)
-                        .addGap(15, 15, 15)
-                        .addComponent(L_total)
-                        .addGap(15, 15, 15)
-                        .addComponent(BTN_bookAndPay)))
-                .addGap(20, 20, 20))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(L_title, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(pnlSeatContainer, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(L_movie)
+                                                .addGap(10, 10, 10)
+                                                .addComponent(CB_movie, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(15, 15, 15)
+                                                .addComponent(L_custName)
+                                                .addGap(5, 5, 5)
+                                                .addComponent(TF_customerName, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(L_showtime)
+                                                .addGap(10, 10, 10)
+                                                .addComponent(CB_showtime, javax.swing.GroupLayout.PREFERRED_SIZE, 400,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(L_discount)
+                                                .addGap(5, 5, 5)
+                                                .addComponent(CB_discount, javax.swing.GroupLayout.PREFERRED_SIZE, 130,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(15, 15, 15)
+                                                .addComponent(L_payment)
+                                                .addGap(5, 5, 5)
+                                                .addComponent(CB_payment, javax.swing.GroupLayout.PREFERRED_SIZE, 100,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(15, 15, 15)
+                                                .addComponent(BTN_calculate)
+                                                .addGap(15, 15, 15)
+                                                .addComponent(L_total)
+                                                .addGap(15, 15, 15)
+                                                .addComponent(BTN_bookAndPay)))
+                                .addGap(20, 20, 20)));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(L_title)
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(L_movie)
-                    .addComponent(CB_movie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L_custName)
-                    .addComponent(TF_customerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(L_showtime)
-                    .addComponent(CB_showtime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(pnlSeatContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(L_discount)
-                    .addComponent(CB_discount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L_payment)
-                    .addComponent(CB_payment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BTN_calculate)
-                    .addComponent(L_total)
-                    .addComponent(BTN_bookAndPay))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(L_title)
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(L_movie)
+                                        .addComponent(CB_movie, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(L_custName)
+                                        .addComponent(TF_customerName, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(L_showtime)
+                                        .addComponent(CB_showtime, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
+                                .addComponent(pnlSeatContainer, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(L_discount)
+                                        .addComponent(CB_discount, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(L_payment)
+                                        .addComponent(CB_payment, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(BTN_calculate)
+                                        .addComponent(L_total)
+                                        .addComponent(BTN_bookAndPay))
+                                .addContainerGap(20, Short.MAX_VALUE)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,11 +216,12 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         }
     }
 
-    private void CB_movieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_movieActionPerformed
+    private void CB_movieActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CB_movieActionPerformed
         CB_showtime.removeAllItems();
         currentShowtimes.clear();
         String selected = (String) CB_movie.getSelectedItem();
-        if (selected == null) return;
+        if (selected == null)
+            return;
         try {
             String movieId = selected.split(" - ")[0];
             currentShowtimes = showtimeService.getShowtimesByMovie(movieId);
@@ -215,9 +233,9 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
-    }//GEN-LAST:event_CB_movieActionPerformed
+    }// GEN-LAST:event_CB_movieActionPerformed
 
-    private void CB_showtimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_showtimeActionPerformed
+    private void CB_showtimeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CB_showtimeActionPerformed
         int idx = CB_showtime.getSelectedIndex();
         if (idx >= 0 && idx < currentShowtimes.size()) {
             try {
@@ -227,7 +245,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
             }
         }
-    }//GEN-LAST:event_CB_showtimeActionPerformed
+    }// GEN-LAST:event_CB_showtimeActionPerformed
 
     private double getDiscountPercent() {
         try {
@@ -235,20 +253,29 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
             String selected = CB_discount.getSelectedItem().toString();
             String key = "";
             switch (selected) {
-                case "Student": key = "STUDENT"; break;
-                case "Senior Citizen": key = "SENIOR"; break;
-                case "Child": key = "CHILD"; break;
-                default: return 0;
+                case "Student":
+                    key = "STUDENT";
+                    break;
+                case "Senior Citizen":
+                    key = "SENIOR";
+                    break;
+                case "Child":
+                    key = "CHILD";
+                    break;
+                default:
+                    return 0;
             }
             for (String line : lines) {
                 String[] parts = line.split("\\|");
-                if (parts[0].equals(key)) return Double.parseDouble(parts[1]);
+                if (parts[0].equals(key))
+                    return Double.parseDouble(parts[1]);
             }
-        } catch (Exception ex) { /* ignore */ }
+        } catch (Exception ex) {
+            /* ignore */ }
         return 0;
     }
 
-    private void BTN_calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_calculateActionPerformed
+    private void BTN_calculateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BTN_calculateActionPerformed
         List<String> selected = seatPanel.getSelectedSeats();
         if (selected.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please select seats");
@@ -256,12 +283,13 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         }
         int idx = CB_showtime.getSelectedIndex();
         if (idx >= 0 && idx < currentShowtimes.size()) {
-            double total = bookingService.calculateTotal(currentShowtimes.get(idx), selected.size(), getDiscountPercent());
+            double total = bookingService.calculateTotal(currentShowtimes.get(idx), selected.size(),
+                    getDiscountPercent());
             L_total.setText("Total: RM " + String.format("%.2f", total));
         }
-    }//GEN-LAST:event_BTN_calculateActionPerformed
+    }// GEN-LAST:event_BTN_calculateActionPerformed
 
-    private void BTN_bookAndPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_bookAndPayActionPerformed
+    private void BTN_bookAndPayActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BTN_bookAndPayActionPerformed
         List<String> selectedSeats = seatPanel.getSelectedSeats();
         if (selectedSeats.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please select seats");
@@ -276,7 +304,8 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         int confirm = JOptionPane.showConfirmDialog(this,
                 "Confirm walk-in booking for " + selectedSeats.size() + " seat(s)?",
                 "Confirm", JOptionPane.YES_NO_OPTION);
-        if (confirm != JOptionPane.YES_OPTION) return;
+        if (confirm != JOptionPane.YES_OPTION)
+            return;
 
         try {
             Showtime st = currentShowtimes.get(idx);
@@ -294,7 +323,10 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
                     booking.getBookingId(), total, paymentMethod, discountAmt);
 
             Movie movie = movieService.getMovieById(st.getMovieId());
-            String receipt = paymentService.generateReceipt(booking, payment, movie, st);
+            String customerName = TF_customerName.getText().trim();
+            if (customerName.isEmpty())
+                customerName = "Walk-in Customer";
+            String receipt = paymentService.generateReceipt(booking, payment, movie, st, customerName);
             new ReceiptDialog(this, receipt).setVisible(true);
 
             // Refresh
@@ -306,7 +338,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
-    }//GEN-LAST:event_BTN_bookAndPayActionPerformed
+    }// GEN-LAST:event_BTN_bookAndPayActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -321,8 +353,9 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         }
 
         java.awt.EventQueue.invokeLater(() -> new ClerkBookingPanel(
-                new TicketingClerk("U002", "clerk1", "clerk123", "John Clerk", "john@cinema.com", "EMP002", "Counter 1")
-        ).setVisible(true));
+                new TicketingClerk("U002", "clerk1", "clerk123", "John Clerk", "john@cinema.com", "EMP002",
+                        "Counter 1"))
+                .setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -9,6 +9,7 @@ import main_running.*;
 
 /**
  * Handles payment processing and receipt generation.
+ * 
  * @author Chan Hao Wen
  */
 public class PaymentService {
@@ -17,7 +18,7 @@ public class PaymentService {
 
     // Process a payment
     public Payment processPayment(String bookingId, double amount,
-                                   String paymentMethod, double discount) throws IOException {
+            String paymentMethod, double discount) throws IOException {
         String paymentId = FileHandler.generateNextId(PAYMENTS_FILE, "P");
         String paymentDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 
@@ -76,19 +77,21 @@ public class PaymentService {
 
     // Generate receipt string
     public String generateReceipt(Booking booking, Payment payment,
-                                   Movie movie, Showtime showtime) {
+            Movie movie, Showtime showtime, String customerName) {
         StringBuilder sb = new StringBuilder();
         sb.append("========================================\n");
         sb.append("         CINEMA BOOKING RECEIPT         \n");
         sb.append("========================================\n");
         sb.append("Booking ID  : ").append(booking.getBookingId()).append("\n");
+        sb.append("Customer    : ").append(customerName).append("\n");
         sb.append("Movie       : ").append(movie.getTitle()).append("\n");
         sb.append("Hall        : ").append(showtime.getHallNumber()).append("\n");
         sb.append("Date        : ").append(showtime.getDate()).append("\n");
         sb.append("Time        : ").append(showtime.getTime()).append("\n");
         sb.append("Seats       : ").append(booking.getSeatNumbers()).append("\n");
         sb.append("----------------------------------------\n");
-        sb.append("Subtotal    : RM ").append(String.format("%.2f", payment.getAmount() + payment.getDiscountApplied())).append("\n");
+        sb.append("Subtotal    : RM ").append(String.format("%.2f", payment.getAmount() + payment.getDiscountApplied()))
+                .append("\n");
         if (payment.getDiscountApplied() > 0) {
             sb.append("Discount    : RM ").append(String.format("%.2f", payment.getDiscountApplied())).append("\n");
         }
