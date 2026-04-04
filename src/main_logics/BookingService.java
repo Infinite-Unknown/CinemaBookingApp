@@ -18,8 +18,7 @@ public class BookingService {
     private static final String SHOWTIMES_FILE = "showtimes.txt";
 
     // Create a booking
-    public Booking createBooking(String customerId, String showtimeId,
-                                  List<String> seatNumbers, String bookedBy) throws Exception {
+    public Booking createBooking(String customerId, String showtimeId, List<String> seatNumbers, String bookedBy) throws Exception {
         // Check seats are available
         for (String seatNum : seatNumbers) {
             Seat seat = getSeatByShowtimeAndNumber(showtimeId, seatNum);
