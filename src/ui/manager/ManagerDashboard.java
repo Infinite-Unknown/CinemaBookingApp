@@ -3,10 +3,8 @@ package ui.manager;
 import main_running.Manager;
 import ui.LoginFrame;
 
-/**
- * Manager dashboard with buttons to access different management panels.
- * @author jiahe
- */
+// main dashboard for manager
+// @author jiahe
 public class ManagerDashboard extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ManagerDashboard.class.getName());

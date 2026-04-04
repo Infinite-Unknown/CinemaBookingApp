@@ -2,7 +2,6 @@ package main_running;
 
 /**
  * Customer user who can register, book tickets, and view bookings.
- * Demonstrates: inheritance, method overriding.
  */
 public class Customer extends User {
 

@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import main_running.Showtime;
 
-/**
- * Handles showtime CRUD operations.
- * @author jiahe
- */
+// showtime service for managing showtimes
 public class ShowtimeService {
 
     private static final String SHOWTIMES_FILE = "showtimes.txt";

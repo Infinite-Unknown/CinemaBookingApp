@@ -6,10 +6,8 @@ import java.util.List;
 import javax.swing.*;
 import main_logics.FileHandler;
 
-/**
- * Panel for managing discount pricing policies.
- * @author jiahe
- */
+// pricing panel for discounts
+// @author jiahe
 public class ManagePricingPanel extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ManagePricingPanel.class.getName());
@@ -147,9 +145,9 @@ public class ManagePricingPanel extends javax.swing.JFrame {
             for (String line : lines) {
                 String[] parts = line.split("\\|");
                 switch (parts[0]) {
-                    case "SENIOR": TF_senior.setText(parts[1]); break;
-                    case "STUDENT": TF_student.setText(parts[1]); break;
-                    case "CHILD": TF_child.setText(parts[1]); break;
+                    case "SENIOR" -> TF_senior.setText(parts[1]);
+                    case "STUDENT" -> TF_student.setText(parts[1]);
+                    case "CHILD" -> TF_child.setText(parts[1]);
                 }
             }
         } catch (IOException ex) {

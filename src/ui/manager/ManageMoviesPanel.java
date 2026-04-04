@@ -6,21 +6,24 @@ import javax.swing.table.DefaultTableModel;
 import main_logics.MovieService;
 import main_running.Movie;
 
-/**
- * Panel for managing movies - add, update, delete.
- * @author jiahe
- */
+// @author jiahe
 public class ManageMoviesPanel extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ManageMoviesPanel.class.getName());
     private MovieService movieService;
-    private DefaultTableModel tableModel;
+    private final DefaultTableModel tableModel;
 
     public ManageMoviesPanel() {
         movieService = new MovieService();
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Manage Movies");
+        tableModel = new DefaultTableModel(
+            new String[]{"ID", "Title", "Genre", "Duration", "Language", "Rating", "Active"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) { return false; }
+        };
+        TBL_movies.setModel(tableModel);
         loadMovies();
     }
 
@@ -54,16 +57,26 @@ public class ManageMoviesPanel extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        L_title.setFont(new java.awt.Font("Segoe UI", 1, 20));
+        L_title.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title.setText("Manage Movies");
 
-        tableModel = new DefaultTableModel(
-            new String[]{"ID", "Title", "Genre", "Duration", "Language", "Rating", "Active"}, 0) {
-            @Override
-            public boolean isCellEditable(int row, int column) { return false; }
-        };
-        TBL_movies.setModel(tableModel);
+        TBL_movies.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         TBL_movies.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         TBL_movies.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -73,24 +86,26 @@ public class ManageMoviesPanel extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TBL_movies);
 
         L_movieTitle.setText("Title:");
+
         L_genre.setText("Genre:");
+
+        CB_genre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Romance", "Thriller", "Animation", "Adventure" }));
+
         L_duration.setText("Duration (min):");
+
         L_language.setText("Language:");
+
+        CB_language.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "English", "Malay", "Chinese", "Tamil", "Korean", "Japanese" }));
+
         L_rating.setText("Rating:");
+
+        CB_rating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G", "PG", "PG-13", "R", "NC-17" }));
+
         L_description.setText("Description:");
 
-        CB_genre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{
-            "Action", "Comedy", "Drama", "Horror", "Sci-Fi", "Romance", "Thriller", "Animation", "Adventure"}));
-
-        CB_language.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{
-            "English", "Malay", "Chinese", "Tamil", "Korean", "Japanese"}));
-
-        CB_rating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{
-            "G", "PG", "PG-13", "R", "NC-17"}));
-
         TA_description.setColumns(20);
-        TA_description.setRows(3);
         TA_description.setLineWrap(true);
+        TA_description.setRows(3);
         TA_description.setWrapStyleWord(true);
         jScrollPane2.setViewportView(TA_description);
 
@@ -100,7 +115,7 @@ public class ManageMoviesPanel extends javax.swing.JFrame {
         BTN_update.setText("Update Movie");
         BTN_update.addActionListener(this::BTN_updateActionPerformed);
 
-        BTN_delete.setText("Remove Movie");
+        BTN_delete.setText("Active Toggle");
         BTN_delete.addActionListener(this::BTN_deleteActionPerformed);
 
         BTN_clear.setText("Clear");
@@ -114,7 +129,7 @@ public class ManageMoviesPanel extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(L_movieTitle)
@@ -126,10 +141,10 @@ public class ManageMoviesPanel extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TF_title)
-                            .addComponent(CB_genre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CB_genre, 0, 1, Short.MAX_VALUE)
                             .addComponent(TF_duration)
-                            .addComponent(CB_language, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CB_rating, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CB_language, 0, 1, Short.MAX_VALUE)
+                            .addComponent(CB_rating, 0, 1, Short.MAX_VALUE)
                             .addComponent(jScrollPane2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(BTN_add, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,6 +210,7 @@ public class ManageMoviesPanel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // load movies into the table
     private void loadMovies() {
         tableModel.setRowCount(0);
         try {
@@ -233,6 +249,7 @@ public class ManageMoviesPanel extends javax.swing.JFrame {
 
     private void BTN_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_addActionPerformed
         try {
+            // get data from the form
             String title = TF_title.getText().trim();
             String genre = CB_genre.getSelectedItem().toString();
             String durationStr = TF_duration.getText().trim();
@@ -297,21 +314,38 @@ public class ManageMoviesPanel extends javax.swing.JFrame {
     private void BTN_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_deleteActionPerformed
         int row = TBL_movies.getSelectedRow();
         if (row < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a movie to remove");
+            JOptionPane.showMessageDialog(this, "Please select a movie");
             return;
         }
-        int confirm = JOptionPane.showConfirmDialog(this,
-                "Are you sure you want to remove this movie?", "Confirm", JOptionPane.YES_NO_OPTION);
-        if (confirm == JOptionPane.YES_OPTION) {
-            try {
-                String movieId = tableModel.getValueAt(row, 0).toString();
-                movieService.deleteMovie(movieId);
-                loadMovies();
-                clearFields();
-                JOptionPane.showMessageDialog(this, "Movie removed successfully!");
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error removing movie: " + ex.getMessage());
+        try {
+            String movieId = tableModel.getValueAt(row, 0).toString();
+            Movie movie = movieService.getMovieById(movieId);
+
+            if (movie.isIsActive()) {
+                // movie is active, ask to deactivate
+                int confirm = JOptionPane.showConfirmDialog(this,
+                        "Are you sure you want to remove this movie?", "Confirm", JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
+                    movie.setIsActive(false);
+                    movieService.updateMovie(movie);
+                    loadMovies();
+                    clearFields();
+                    JOptionPane.showMessageDialog(this, "Movie removed successfully!");
+                }
+            } else {
+                // movie is inactive, ask to reactivate
+                int confirm = JOptionPane.showConfirmDialog(this,
+                        "Do you want to reactivate this movie?", "Confirm", JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
+                    movie.setIsActive(true);
+                    movieService.updateMovie(movie);
+                    loadMovies();
+                    clearFields();
+                    JOptionPane.showMessageDialog(this, "Movie reactivated!");
+                }
             }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
     }//GEN-LAST:event_BTN_deleteActionPerformed
 

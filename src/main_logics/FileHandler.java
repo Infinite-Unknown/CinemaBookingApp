@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * Handles reading and writing data to text files.
- * Demonstrates: method overloading, exception handling.
  * @author Chan Hao Wen
  */
 public class FileHandler {

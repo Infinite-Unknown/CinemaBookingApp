@@ -6,22 +6,17 @@ import javax.swing.table.DefaultTableModel;
 import main_logics.*;
 import main_running.*;
 
-/**
- * Panel for viewing booking reports and revenue summaries.
- * @author jiahe
- */
+// @author jiahe
 public class ReportsPanel extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReportsPanel.class.getName());
-    private BookingService bookingService;
-    private PaymentService paymentService;
-    private MovieService movieService;
-    private ShowtimeService showtimeService;
+    private final BookingService bookingService;
+    private final MovieService movieService;
+    private final ShowtimeService showtimeService;
     private DefaultTableModel tableModel;
 
     public ReportsPanel() {
         bookingService = new BookingService();
-        paymentService = new PaymentService();
         movieService = new MovieService();
         showtimeService = new ShowtimeService();
         initComponents();
@@ -123,6 +118,7 @@ public class ReportsPanel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // load all bookings and calculate stats
     private void loadReport() {
         tableModel.setRowCount(0);
         try {

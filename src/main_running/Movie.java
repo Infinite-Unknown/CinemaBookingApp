@@ -1,9 +1,7 @@
 package main_running;
 
-/**
- * Represents a movie in the cinema system.
- * @author jiahe
- */
+// Movie class - stores movie info
+// @author jiahe
 public class Movie implements Displayable, Saveable {
 
     private String movieId;
@@ -35,6 +33,7 @@ public class Movie implements Displayable, Saveable {
         return title + " (" + genre + ") - " + rating;
     }
 
+    // Movie ID | Name | Genre | Length | Language | Rating | Description | Active
     @Override
     public String getDetailedInfo() {
         return title + " | " + genre + " | " + durationMinutes + " min | "
@@ -53,7 +52,6 @@ public class Movie implements Displayable, Saveable {
                 parts[4], parts[5], parts[6], Boolean.parseBoolean(parts[7]));
     }
 
-    // Getters and Setters
     public String getMovieId() { return movieId; }
     public void setMovieId(String movieId) { this.movieId = movieId; }
 

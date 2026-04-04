@@ -10,7 +10,7 @@ import main_running.Movie;
 import main_running.Showtime;
 
 /**
- * Panel for managing showtimes - add, update, delete.
+ * Panel for managing showtime - add, update, delete.
  * @author jiahe
  */
 public class ManageShowtimesPanel extends javax.swing.JFrame {
@@ -28,6 +28,14 @@ public class ManageShowtimesPanel extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Manage Showtimes");
+        tableModel = new DefaultTableModel(
+            new String[]{"ID", "Movie", "Hall", "Date", "Time", "Price (RM)", "Seats"},
+            0
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int col) { return false; }
+        };
+        TBL_showtimes.setModel(tableModel);
         loadMovieCombo();
         loadShowtimes();
     }
@@ -59,19 +67,30 @@ public class ManageShowtimesPanel extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        L_title.setFont(new java.awt.Font("Segoe UI", 1, 20));
+        L_title.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         L_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         L_title.setText("Manage Showtimes");
 
         L_movie.setText("Movie:");
+
         CB_movie.addActionListener(this::CB_movieActionPerformed);
 
-        tableModel = new DefaultTableModel(
-            new String[]{"ID", "Movie", "Hall", "Date", "Time", "Price (RM)", "Available/Total"}, 0) {
-            @Override
-            public boolean isCellEditable(int row, int column) { return false; }
-        };
-        TBL_showtimes.setModel(tableModel);
+        TBL_showtimes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         TBL_showtimes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         TBL_showtimes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -81,10 +100,13 @@ public class ManageShowtimesPanel extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TBL_showtimes);
 
         L_hall.setText("Hall:");
-        CB_hall.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Hall 1", "Hall 2", "Hall 3"}));
+
+        CB_hall.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hall 1", "Hall 2", "Hall 3" }));
 
         L_date.setText("Date (yyyy-MM-dd):");
+
         L_time.setText("Time (HH:mm):");
+
         L_price.setText("Base Price (RM):");
 
         BTN_add.setText("Add Showtime");
@@ -111,7 +133,7 @@ public class ManageShowtimesPanel extends javax.swing.JFrame {
                         .addComponent(L_movie)
                         .addGap(10, 10, 10)
                         .addComponent(CB_movie, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(L_hall)

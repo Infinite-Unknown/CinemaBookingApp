@@ -5,20 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 import main_running.Movie;
 
-/**
- * Handles movie CRUD operations.
- * @author jiahe
- */
 public class MovieService {
 
     private static final String MOVIES_FILE = "movies.txt";
-
+   
+    
     public List<Movie> getAllMovies() throws IOException {
         List<Movie> movies = new ArrayList<>();
         List<String> lines = FileHandler.readLines(MOVIES_FILE);
         for (String line : lines) {
             movies.add(Movie.fromFileString(line));
         }
+        System.out.println("Movies loaded: " + movies.size());
         return movies;
     }
 
@@ -53,7 +51,7 @@ public class MovieService {
         FileHandler.updateLine(MOVIES_FILE, movie.getMovieId(), movie.toFileString());
     }
 
-    // Soft delete - sets isActive to false
+    // dont actually delete, just set inactive
     public void deleteMovie(String movieId) throws IOException {
         Movie movie = getMovieById(movieId);
         if (movie != null) {

@@ -2,7 +2,6 @@ package main_running;
 
 /**
  * Abstract base class for all user types in the cinema system.
- * Demonstrates: abstract class, interfaces, encapsulation, constructor overloading.
  */
 public abstract class User implements Displayable, Saveable {
 

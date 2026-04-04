@@ -2,7 +2,6 @@ package main_running;
 
 /**
  * Ticketing Clerk who can book tickets for walk-in customers and manage bookings.
- * Demonstrates: inheritance, method overriding.
  * @author jiahe
  */
 public class TicketingClerk extends User {

@@ -1,10 +1,7 @@
 package main_running;
 
-/**
- * Manager user who can manage movies, showtimes, pricing, and view reports.
- * Demonstrates: inheritance, method overriding.
- * @author jiahe
- */
+// Manager user class
+// @author jiahe
 public class Manager extends User {
 
     private String employeeId;
@@ -41,6 +38,11 @@ public class Manager extends User {
                 parts[4], parts[6]);
     }
 
-    public String getEmployeeId() { return employeeId; }
-    public void setEmployeeId(String employeeId) { this.employeeId = employeeId; }
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
 }

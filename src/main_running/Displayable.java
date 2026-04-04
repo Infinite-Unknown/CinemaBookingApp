@@ -1,8 +1,6 @@
 package main_running;
 
-/**
- * Interface for objects that can display their information.
- */
+// interface for displaying info
 public interface Displayable {
     String getDisplayInfo();
     String getDetailedInfo();

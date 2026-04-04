@@ -7,7 +7,6 @@ import main_running.*;
 
 /**
  * Handles user authentication and registration.
- * Demonstrates: polymorphism (returns User but actual type varies).
  * @author jiahe
  */
 public class AuthService {
