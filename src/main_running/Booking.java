@@ -18,9 +18,7 @@ public class Booking implements Displayable, Saveable {
     public Booking() {
     }
 
-    public Booking(String bookingId, String customerId, String showtimeId,
-                   String seatNumbers, String bookingDate, String status,
-                   double totalAmount, String bookedBy) {
+    public Booking(String bookingId, String customerId, String showtimeId, String seatNumbers, String bookingDate, String status, double totalAmount, String bookedBy) {
         this.bookingId = bookingId;
         this.customerId = customerId;
         this.showtimeId = showtimeId;
@@ -33,30 +31,24 @@ public class Booking implements Displayable, Saveable {
 
     @Override
     public String getDisplayInfo() {
-        return bookingId + " | Seats: " + seatNumbers + " | RM " + String.format("%.2f", totalAmount)
-                + " | " + status;
+        return bookingId + " | Seats: " + seatNumbers + " | RM " + String.format("%.2f", totalAmount) + " | " + status;
     }
 
     @Override
     public String getDetailedInfo() {
-        return bookingId + " | Customer: " + customerId + " | Showtime: " + showtimeId
-                + " | Seats: " + seatNumbers + " | Date: " + bookingDate
-                + " | RM " + String.format("%.2f", totalAmount) + " | " + status;
+        return bookingId + " | Customer: " + customerId + " | Showtime: " + showtimeId + " | Seats: " + seatNumbers + " | Date: " + bookingDate + " | RM " + String.format("%.2f", totalAmount) + " | " + status;
     }
 
     @Override
     public String toFileString() {
-        return bookingId + "|" + customerId + "|" + showtimeId + "|" + seatNumbers
-                + "|" + bookingDate + "|" + status + "|" + totalAmount + "|" + bookedBy;
+        return bookingId + "|" + customerId + "|" + showtimeId + "|" + seatNumbers + "|" + bookingDate + "|" + status + "|" + totalAmount + "|" + bookedBy;
     }
 
     public static Booking fromFileString(String line) {
         String[] parts = line.split("\\|");
-        return new Booking(parts[0], parts[1], parts[2], parts[3],
-                parts[4], parts[5], Double.parseDouble(parts[6]), parts[7]);
+        return new Booking(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], Double.parseDouble(parts[6]), parts[7]);
     }
 
-    // Getters and Setters
     public String getBookingId() { return bookingId; }
     public void setBookingId(String bookingId) { this.bookingId = bookingId; }
 
