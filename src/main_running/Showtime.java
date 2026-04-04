@@ -18,9 +18,7 @@ public class Showtime implements Displayable, Saveable {
     public Showtime() {
     }
 
-    public Showtime(String showtimeId, String movieId, String hallNumber,
-                    String date, String time, double basePrice,
-                    int totalSeats, int availableSeats) {
+    public Showtime(String showtimeId, String movieId, String hallNumber, String date, String time, double basePrice, int totalSeats, int availableSeats) {
         this.showtimeId = showtimeId;
         this.movieId = movieId;
         this.hallNumber = hallNumber;
@@ -38,24 +36,19 @@ public class Showtime implements Displayable, Saveable {
 
     @Override
     public String getDetailedInfo() {
-        return hallNumber + " | " + date + " " + time + " | RM " + String.format("%.2f", basePrice)
-                + " | Seats: " + availableSeats + "/" + totalSeats;
+        return hallNumber + " | " + date + " " + time + " | RM " + String.format("%.2f", basePrice) + " | Seats: " + availableSeats + "/" + totalSeats;
     }
 
     @Override
     public String toFileString() {
-        return showtimeId + "|" + movieId + "|" + hallNumber + "|" + date + "|"
-                + time + "|" + basePrice + "|" + totalSeats + "|" + availableSeats;
+        return showtimeId + "|" + movieId + "|" + hallNumber + "|" + date + "|" + time + "|" + basePrice + "|" + totalSeats + "|" + availableSeats;
     }
 
     public static Showtime fromFileString(String line) {
         String[] parts = line.split("\\|");
-        return new Showtime(parts[0], parts[1], parts[2], parts[3],
-                parts[4], Double.parseDouble(parts[5]),
-                Integer.parseInt(parts[6]), Integer.parseInt(parts[7]));
+        return new Showtime(parts[0], parts[1], parts[2], parts[3], parts[4], Double.parseDouble(parts[5]), Integer.parseInt(parts[6]), Integer.parseInt(parts[7]));
     }
 
-    // Getters and Setters
     public String getShowtimeId() { return showtimeId; }
     public void setShowtimeId(String showtimeId) { this.showtimeId = showtimeId; }
 

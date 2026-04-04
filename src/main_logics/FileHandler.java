@@ -12,16 +12,16 @@ public class FileHandler {
 
     private static final String DATA_DIR = "src/data/";
 
-    // Read all lines from a file
+    // Read all lines from a file.
     public static List<String> readLines(String filename) throws IOException {
         List<String> lines = new ArrayList<>();
         File file = new File(DATA_DIR + filename);
         if (!file.exists()) {
             return lines;
         }
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 if (!line.trim().isEmpty()) {
                     lines.add(line);
                 }
@@ -30,7 +30,7 @@ public class FileHandler {
         return lines;
     }
 
-    // Method overloading - read lines with filter
+    // Method overloading, read lines with filter.
     public static List<String> readLines(String filename, String filterValue, int fieldIndex) throws IOException {
         List<String> allLines = readLines(filename);
         List<String> filtered = new ArrayList<>();
@@ -43,27 +43,27 @@ public class FileHandler {
         return filtered;
     }
 
-    // Write all lines to a file (overwrite)
+    // Write all lines to a file (overwrite).
     public static void writeLines(String filename, List<String> lines) throws IOException {
         File file = new File(DATA_DIR + filename);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             for (String line : lines) {
-                writer.write(line);
-                writer.newLine();
+                bw.write(line);
+                bw.newLine();
             }
         }
     }
 
-    // Append a single line to a file
+    // Append a single line to a file.
     public static void appendLine(String filename, String line) throws IOException {
         File file = new File(DATA_DIR + filename);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
-            writer.write(line);
-            writer.newLine();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
+            bw.write(line);
+            bw.newLine();
         }
     }
 
-    // Update a specific line by ID (first field before |)
+    // Update a specific line by ID (first field before |).
     public static void updateLine(String filename, String id, String newLine) throws IOException {
         List<String> lines = readLines(filename);
         List<String> updatedLines = new ArrayList<>();
@@ -78,7 +78,7 @@ public class FileHandler {
         writeLines(filename, updatedLines);
     }
 
-    // Delete a line by ID
+    // Delete a line by ID.
     public static void deleteLine(String filename, String id) throws IOException {
         List<String> lines = readLines(filename);
         List<String> updatedLines = new ArrayList<>();
@@ -91,7 +91,7 @@ public class FileHandler {
         writeLines(filename, updatedLines);
     }
 
-    // Generate next ID given prefix and filename (e.g., "M" + movies.txt -> "M003")
+    // Generate next ID given prefix and filename (ex: "M" + movies.txt -> "M003").
     public static String generateNextId(String filename, String prefix) throws IOException {
         List<String> lines = readLines(filename);
         int maxNum = 0;
@@ -104,7 +104,7 @@ public class FileHandler {
                         maxNum = num;
                     }
                 } catch (NumberFormatException e) {
-                    // skip invalid IDs
+                    // ignore those invalid IDs.
                 }
             }
         }
