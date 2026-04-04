@@ -1,0 +1,24 @@
+{
+  "name": "cinemabookingapp",
+  "version": "1.0.0",
+  "description": "A Java Swing desktop application for managing cinema ticket bookings. Built with Apache NetBeans IDE 28 using the Ant build system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Infinite-Unknown/CinemaBookingApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Infinite-Unknown/CinemaBookingApp/issues"
+  },
+  "homepage": "https://github.com/Infinite-Unknown/CinemaBookingApp#readme",
+  "dependencies": {
+    "docx": "^9.6.1"
+  }
+}

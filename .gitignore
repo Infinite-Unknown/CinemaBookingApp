@@ -1,0 +1,7 @@
+build/
+node_modules/
+nbproject/private/
+.claude/
+*.docx
+~$*
+backup/
