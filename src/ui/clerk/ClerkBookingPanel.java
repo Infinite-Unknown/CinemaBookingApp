@@ -319,9 +319,8 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
 
             Movie movie = movieService.getMovieById(st.getMovieId());
             String customerName = TF_customerName.getText().trim();
-            if (customerName.isEmpty()) {
+            if (customerName.isEmpty()) 
                 customerName = "Walk-in Customer";
-            }
             String receipt = paymentService.generateReceipt(booking, payment, movie, st, customerName);
             new ReceiptDialog(this, receipt).setVisible(true);
 
