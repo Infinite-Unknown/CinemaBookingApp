@@ -138,9 +138,7 @@ public class ClerkManageBookingsPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "This booking is already cancelled");
             return;
         }
-        int confirm = JOptionPane.showConfirmDialog(this,
-                "Are you sure you want to cancel this booking?",
-                "Confirm Cancellation", JOptionPane.YES_NO_OPTION);
+        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to cancel this booking?", "Confirm Cancellation", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
             try {
                 String bookingId = tableModel.getValueAt(row, 0).toString();
