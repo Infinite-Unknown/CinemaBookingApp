@@ -15,8 +15,7 @@ import ui.SeatSelectionPanel;
  */
 public class ClerkBookingPanel extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger
-            .getLogger(ClerkBookingPanel.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ClerkBookingPanel.class.getName());
     private TicketingClerk clerk;
     private MovieService movieService;
     private ShowtimeService showtimeService;
@@ -216,7 +215,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         }
     }
 
-    private void CB_movieActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CB_movieActionPerformed
+    private void CB_movieActionPerformed(java.awt.event.ActionEvent evt) {
         CB_showtime.removeAllItems();
         currentShowtimes.clear();
         String selected = (String) CB_movie.getSelectedItem();
@@ -226,16 +225,14 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
             String movieId = selected.split(" - ")[0];
             currentShowtimes = showtimeService.getShowtimesByMovie(movieId);
             for (Showtime st : currentShowtimes) {
-                CB_showtime.addItem(st.getShowtimeId() + " | " + st.getHallNumber() + " | "
-                        + st.getDate() + " " + st.getTime() + " | RM " + String.format("%.2f", st.getBasePrice())
-                        + " | " + st.getAvailableSeats() + " left");
+                CB_showtime.addItem(st.getShowtimeId() + " | " + st.getHallNumber() + " | " + st.getDate() + " " + st.getTime() + " | RM " + String.format("%.2f", st.getBasePrice()) + " | " + st.getAvailableSeats() + " left");
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
-    }// GEN-LAST:event_CB_movieActionPerformed
+    }
 
-    private void CB_showtimeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CB_showtimeActionPerformed
+    private void CB_showtimeActionPerformed(java.awt.event.ActionEvent evt) {
         int idx = CB_showtime.getSelectedIndex();
         if (idx >= 0 && idx < currentShowtimes.size()) {
             try {
@@ -245,7 +242,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
             }
         }
-    }// GEN-LAST:event_CB_showtimeActionPerformed
+    }
 
     private double getDiscountPercent() {
         try {
@@ -271,11 +268,12 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
                     return Double.parseDouble(parts[1]);
             }
         } catch (Exception ex) {
-            /* ignore */ }
+            // ignore 
+        }
         return 0;
     }
 
-    private void BTN_calculateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BTN_calculateActionPerformed
+    private void BTN_calculateActionPerformed(java.awt.event.ActionEvent evt) {
         List<String> selected = seatPanel.getSelectedSeats();
         if (selected.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please select seats");
@@ -287,9 +285,9 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
                     getDiscountPercent());
             L_total.setText("Total: RM " + String.format("%.2f", total));
         }
-    }// GEN-LAST:event_BTN_calculateActionPerformed
+    }
 
-    private void BTN_bookAndPayActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BTN_bookAndPayActionPerformed
+    private void BTN_bookAndPayActionPerformed(java.awt.event.ActionEvent evt) {
         List<String> selectedSeats = seatPanel.getSelectedSeats();
         if (selectedSeats.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please select seats");
@@ -314,18 +312,19 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
             double discountAmt = subtotal * (discPct / 100.0);
             double total = subtotal - discountAmt;
 
-            // Use WALK-IN as customer ID
-            Booking booking = bookingService.createBooking("WALK-IN", st.getShowtimeId(),
-                    selectedSeats, clerk.getUserId());
+            // Use WALK-IN as customer ID for guests
+            Booking booking = bookingService.createBooking("WALK-IN", st.getShowtimeId(), selectedSeats, clerk.getUserId());
 
             String paymentMethod = CB_payment.getSelectedItem().toString();
-            Payment payment = paymentService.processPayment(
-                    booking.getBookingId(), total, paymentMethod, discountAmt);
+            
+            Payment payment = paymentService.processPayment(booking.getBookingId(), total, paymentMethod, discountAmt);
 
             Movie movie = movieService.getMovieById(st.getMovieId());
+            
             String customerName = TF_customerName.getText().trim();
             if (customerName.isEmpty())
                 customerName = "Walk-in Customer";
+            
             String receipt = paymentService.generateReceipt(booking, payment, movie, st, customerName);
             new ReceiptDialog(this, receipt).setVisible(true);
 
@@ -338,7 +337,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
-    }// GEN-LAST:event_BTN_bookAndPayActionPerformed
+    }
 
     public static void main(String args[]) {
         try {
