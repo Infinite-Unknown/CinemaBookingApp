@@ -216,7 +216,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         }
     }
 
-    private void CB_movieActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CB_movieActionPerformed
+    private void CB_movieActionPerformed(java.awt.event.ActionEvent evt) {
         CB_showtime.removeAllItems();
         currentShowtimes.clear();
         String selected = (String) CB_movie.getSelectedItem();
@@ -233,9 +233,9 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
-    }// GEN-LAST:event_CB_movieActionPerformed
+    }
 
-    private void CB_showtimeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CB_showtimeActionPerformed
+    private void CB_showtimeActionPerformed(java.awt.event.ActionEvent evt) {
         int idx = CB_showtime.getSelectedIndex();
         if (idx >= 0 && idx < currentShowtimes.size()) {
             try {
@@ -245,7 +245,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
             }
         }
-    }// GEN-LAST:event_CB_showtimeActionPerformed
+    }
 
     private double getDiscountPercent() {
         try {
@@ -275,7 +275,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         return 0;
     }
 
-    private void BTN_calculateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BTN_calculateActionPerformed
+    private void BTN_calculateActionPerformed(java.awt.event.ActionEvent evt) {
         List<String> selected = seatPanel.getSelectedSeats();
         if (selected.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please select seats");
@@ -287,9 +287,9 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
                     getDiscountPercent());
             L_total.setText("Total: RM " + String.format("%.2f", total));
         }
-    }// GEN-LAST:event_BTN_calculateActionPerformed
+    }
 
-    private void BTN_bookAndPayActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_BTN_bookAndPayActionPerformed
+    private void BTN_bookAndPayActionPerformed(java.awt.event.ActionEvent evt) {
         List<String> selectedSeats = seatPanel.getSelectedSeats();
         if (selectedSeats.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please select seats");
@@ -338,7 +338,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
         }
-    }// GEN-LAST:event_BTN_bookAndPayActionPerformed
+    }
 
     public static void main(String args[]) {
         try {
@@ -353,8 +353,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         }
 
         java.awt.EventQueue.invokeLater(() -> new ClerkBookingPanel(
-                new TicketingClerk("U002", "clerk1", "clerk123", "John Clerk", "john@cinema.com", "EMP002",
-                        "Counter 1"))
+                new TicketingClerk("U002", "clerk1", "clerk123", "John Clerk", "john@cinema.com", "EMP002", "Counter 1"))
                 .setVisible(true));
     }
 

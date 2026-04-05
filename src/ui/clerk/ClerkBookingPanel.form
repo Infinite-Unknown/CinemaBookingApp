@@ -47,7 +47,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="20" pref="20" max="20" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="pnlSeatContainer" max="32767" attributes="0"/>
+                      <Component id="pnlSeatContainer" pref="693" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="L_movie" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="10" pref="10" max="10" attributes="0"/>
@@ -100,7 +100,7 @@
                       <Component id="CB_showtime" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="10" attributes="0"/>
-                  <Component id="pnlSeatContainer" min="-2" pref="250" max="-2" attributes="0"/>
+                  <Component id="pnlSeatContainer" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="L_discount" alignment="3" min="-2" max="-2" attributes="0"/>
