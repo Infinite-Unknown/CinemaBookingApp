@@ -277,7 +277,7 @@ public class ManageShowtimesPanel extends javax.swing.JFrame {
             }
             String movieId = selected.split(" - ")[0];
             String hall = CB_hall.getSelectedItem().toString();
-            String date = TF_date.getText().trim();
+            String date = TF_date.getText().trim().replace('/', '-');
             String time = TF_time.getText().trim();
             String priceStr = TF_price.getText().trim();
 
@@ -316,7 +316,7 @@ public class ManageShowtimesPanel extends javax.swing.JFrame {
             String stId = tableModel.getValueAt(row, 0).toString();
             Showtime st = showtimeService.getShowtimeById(stId);
             st.setHallNumber(CB_hall.getSelectedItem().toString());
-            st.setDate(TF_date.getText().trim());
+            st.setDate(TF_date.getText().trim().replace('/', '-'));
             st.setTime(TF_time.getText().trim());
             st.setBasePrice(Double.parseDouble(TF_price.getText().trim()));
             showtimeService.updateShowtime(st);
