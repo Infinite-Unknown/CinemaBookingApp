@@ -48,8 +48,7 @@ public class BookingService {
         String bookingDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         String seats = String.join(",", seatNumbers);
 
-        Booking booking = new Booking(bookingId, customerId, showtimeId, seats,
-                bookingDate, "CONFIRMED", total, bookedBy);
+        Booking booking = new Booking(bookingId, customerId, showtimeId, seats, bookingDate, "CONFIRMED", total, bookedBy);
         FileHandler.appendLine(BOOKINGS_FILE, booking.toFileString());
 
         return booking;
