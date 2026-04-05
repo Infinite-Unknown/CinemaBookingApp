@@ -119,9 +119,7 @@ public class ClerkManageBookingsPanel extends javax.swing.JFrame {
                     movieTitle = movie != null ? movie.getTitle() : st.getMovieId();
                 }
                 tableModel.addRow(new Object[]{
-                    b.getBookingId(), b.getCustomerId(), movieTitle,
-                    b.getSeatNumbers(), b.getBookingDate(),
-                    String.format("%.2f", b.getTotalAmount()), b.getStatus()
+                    b.getBookingId(), b.getCustomerId(), movieTitle, b.getSeatNumbers(), b.getBookingDate(), String.format("%.2f", b.getTotalAmount()), b.getStatus()
                 });
             }
         } catch (Exception ex) {
