@@ -352,8 +352,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         }
 
         java.awt.EventQueue.invokeLater(() -> new ClerkBookingPanel(
-                new TicketingClerk("U002", "clerk1", "clerk123", "John Clerk", "john@cinema.com", "EMP002",
-                        "Counter 1"))
+                new TicketingClerk("U002", "clerk1", "clerk123", "John Clerk", "john@cinema.com", "EMP002", "Counter 1"))
                 .setVisible(true));
     }
 
