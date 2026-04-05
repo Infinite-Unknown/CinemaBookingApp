@@ -281,8 +281,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
         }
         int idx = CB_showtime.getSelectedIndex();
         if (idx >= 0 && idx < currentShowtimes.size()) {
-            double total = bookingService.calculateTotal(currentShowtimes.get(idx), selected.size(),
-                    getDiscountPercent());
+            double total = bookingService.calculateTotal(currentShowtimes.get(idx), selected.size(), getDiscountPercent());
             L_total.setText("Total: RM " + String.format("%.2f", total));
         }
     }
@@ -299,9 +298,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
             return;
         }
 
-        int confirm = JOptionPane.showConfirmDialog(this,
-                "Confirm walk-in booking for " + selectedSeats.size() + " seat(s)?",
-                "Confirm", JOptionPane.YES_NO_OPTION);
+        int confirm = JOptionPane.showConfirmDialog(this, "Confirm walk-in booking for " + selectedSeats.size() + " seat(s)?", "Confirm", JOptionPane.YES_NO_OPTION);
         if (confirm != JOptionPane.YES_OPTION)
             return;
 
@@ -322,7 +319,7 @@ public class ClerkBookingPanel extends javax.swing.JFrame {
             Movie movie = movieService.getMovieById(st.getMovieId());
             
             String customerName = TF_customerName.getText().trim();
-            if (customerName.isEmpty())
+            if (customerName.isEmpty()) 
                 customerName = "Walk-in Customer";
             
             String receipt = paymentService.generateReceipt(booking, payment, movie, st, customerName);
