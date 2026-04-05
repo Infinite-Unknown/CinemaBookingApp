@@ -286,6 +286,20 @@ public class ManageShowtimesPanel extends javax.swing.JFrame {
                 return;
             }
 
+            String[] dateParts = date.split("-");
+            if (dateParts.length != 3) {
+                JOptionPane.showMessageDialog(this, "Please enter date in format yyyy-MM-dd");
+                return;
+            }
+            try {
+                Integer.parseInt(dateParts[0]); //year
+                Integer.parseInt(dateParts[1]); // month
+                Integer.parseInt(dateParts[2]); // day
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Date parts must be valid numbers");
+                return;
+            }
+
             double price = Double.parseDouble(priceStr);
             String stId = showtimeService.generateShowtimeId();
             int totalSeats = 50;
@@ -313,10 +327,25 @@ public class ManageShowtimesPanel extends javax.swing.JFrame {
             return;
         }
         try {
+            String date = TF_date.getText().trim().replace('/', '-');
+            String[] dateParts = date.split("-");
+            if (dateParts.length != 3) {
+                JOptionPane.showMessageDialog(this, "Please enter date in format yyyy-MM-dd");
+                return;
+            }
+            try {
+                Integer.parseInt(dateParts[0]);
+                Integer.parseInt(dateParts[1]);
+                Integer.parseInt(dateParts[2]);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Date parts must be valid numbers");
+                return;
+            }
+
             String stId = tableModel.getValueAt(row, 0).toString();
             Showtime st = showtimeService.getShowtimeById(stId);
             st.setHallNumber(CB_hall.getSelectedItem().toString());
-            st.setDate(TF_date.getText().trim().replace('/', '-'));
+            st.setDate(date);
             st.setTime(TF_time.getText().trim());
             st.setBasePrice(Double.parseDouble(TF_price.getText().trim()));
             showtimeService.updateShowtime(st);
