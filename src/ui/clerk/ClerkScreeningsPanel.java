@@ -103,8 +103,7 @@ public class ClerkScreeningsPanel extends javax.swing.JFrame {
                 Movie movie = movieService.getMovieById(st.getMovieId());
                 String movieTitle = movie != null ? movie.getTitle() : st.getMovieId();
                 tableModel.addRow(new Object[]{
-                    movieTitle, st.getHallNumber(), st.getDate(), st.getTime(),
-                    String.format("%.2f", st.getBasePrice()), st.getAvailableSeats()
+                    movieTitle, st.getHallNumber(), st.getDate(), st.getTime(), String.format("%.2f", st.getBasePrice()), st.getAvailableSeats()
                 });
             }
         } catch (Exception ex) {
